@@ -22,12 +22,12 @@ class MainMenu(npyscreen.FormBaseNew):
         self.add(npyscreen.TitleFixedText, name = menu_title, relx = (x_max - 23) // 2, rely = y_max // 2 - 5);
         self.add(npyscreen.ButtonPress, name="[ Login ]", relx = (x_max - 14) // 2, rely = y_max // 2 - 3, when_pressed_function=self.login);
         self.add(npyscreen.ButtonPress, name="[ Exit  ]", relx = (x_max - 14) // 2, rely = y_max // 2 - 1, when_pressed_function=self.exit);
-        connection_status = self.add(npyscreen.FixedText, name="Disconnected", relx=2, rely=1);
+        connection_status = self.add(npyscreen.FixedText, value="Disconnected", relx=2, rely=1);
 
         # Connected
         @client.sio.event 
         def connect():
-            connection_status.value = "Connected - SID {}".format(client.sio.sid);
+            connection_status.value = "Connected - SID {}".format(client.sio.get_sid());
             connection_status.display();
 
         # Disconnected
