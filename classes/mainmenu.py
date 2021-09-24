@@ -27,7 +27,7 @@ class MainMenu(npyscreen.FormBaseNew):
         # Connected
         @client.sio.event 
         def connect():
-            connection_status.value = "Connected";
+            connection_status.value = "Connected - SID {}".format(client.sio.sid);
             connection_status.display();
 
         # Disconnected
