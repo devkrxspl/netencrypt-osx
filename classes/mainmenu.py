@@ -7,6 +7,7 @@ import curses;
 sys.path.append("../netencrypt");
 
 from util import terminal;
+from util import notify;
 from conn import client;
 
 # Main
@@ -38,7 +39,8 @@ class MainMenu(npyscreen.FormBaseNew):
 
     def login(self):
         if (not client.sio.connected):
-            npyscreen.notify_confirm("  Failed to establish a connection to the server.", "", form_color="WHITE_BLACK", editw=1);
+            y_max, x_max = curses.initscr().getmaxyx();
+            notify.notify_confirm("  Failed to establish a connection to the server.", "", form_color="WHITE_BLACK", editw=1, width=x_max - 10, relx = 5);
 
     def exit(self):
 
