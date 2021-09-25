@@ -4,6 +4,7 @@ import time;
 
 # Variables
 sio = None;
+exit_app = False;
 
 # Functions
 def connectToServer():
@@ -11,7 +12,7 @@ def connectToServer():
     try:
         sio.connect('https://netencrypt.devkrxspl.repl.co/:3000');
     except:
-        while True:
+        while not exit_app:
             try:
                 sio.connect('https://netencrypt.devkrxspl.repl.co/:3000');
             except:
@@ -26,3 +27,10 @@ def createClient():
     sio = socketio.Client();
 
     return sio;
+
+def disconnect():
+    global exit_app;
+    exit_app = True;
+
+    if (sio and sio.connected):
+        sio.disconnect();

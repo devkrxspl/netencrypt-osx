@@ -45,8 +45,6 @@ class MainMenu(npyscreen.FormBaseNew):
     def exit(self):
 
         self.parentApp.switchForm(None);
-            
-        if (client.sio.connected):
-            client.sio.disconnect();
-
+        
+        client.disconnect();
         terminal.exit();
