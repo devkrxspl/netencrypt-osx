@@ -41,7 +41,7 @@ class MainMenu(npyscreen.FormBaseNew):
     def login(self):
         if (not client.sio.connected):
             y_max, x_max = curses.initscr().getmaxyx();
-            notify.notify_confirm("  Failed to establish a connection to the server.", "", form_color="WHITE_BLACK", editw=1, width=x_max - 10, relx = 5);
+            notify.notify_confirm("  Failed to establish a connection to the server.", "", form_color="WHITE_BLACK", editw=1, width=x_max - 10, height=y_max//2, relx = 5, rely=5);
 
     def exit(self):
 
