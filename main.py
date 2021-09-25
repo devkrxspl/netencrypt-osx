@@ -3,6 +3,7 @@ import threading
 import npyscreen;
 
 from util import terminal;
+from util import encrypthandler;
 from conn import client;
 
 from classes import mainmenu;
