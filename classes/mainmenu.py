@@ -24,18 +24,18 @@ class MainMenu(npyscreen.FormBaseNew):
         self.add(npyscreen.TitleFixedText, name = menu_title, relx = (x_max - 23) // 2, rely = 7);
         self.add(npyscreen.ButtonPress, name="[ Connect ]", relx = (x_max - 14) // 2, rely = 9, when_pressed_function=self.login);
         self.add(npyscreen.ButtonPress, name="[  Exit   ]", relx = (x_max - 14) // 2, rely = 11, when_pressed_function=self.exit);
-        connection_status = self.add(npyscreen.FixedText, value="Disconnected", relx=2, rely=1);
+        connection_status = self.add(npyscreen.FixedText, value="Connection Status: OFFLINE", relx=2, rely=1);
 
         # Connected
         @client.sio.event 
         def connect():
-            connection_status.value = "Connected - SID {}".format(client.sio.get_sid());
+            connection_status.value = "Connection Status: ONLINE";
             connection_status.display();
 
         # Disconnected
         @client.sio.event 
         def disconnect():
-            connection_status.value = "Disconnected";
+            connection_status.value = "Connection Status: OFFLINE";
             connection_status.display();
 
     def login(self):
