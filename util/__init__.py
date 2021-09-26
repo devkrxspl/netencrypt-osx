@@ -1,1 +1,1 @@
-__all__ = ["terminal", "encrypthandler"];
+__all__ = ["terminal", "encrypthandler", "notify"];
