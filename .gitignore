@@ -1,5 +1,8 @@
 /build
 /dist
 /__pycache__
+/classes/__pycache__
+/conn/__pycache__
+/util/__pycache__
 main.spec
 .DS_store 
