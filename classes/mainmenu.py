@@ -21,7 +21,7 @@ class MainMenu(npyscreen.FormBaseNew):
 
         menu_title = "Welcome to NetEncrypt";
 
-        self.add(npyscreen.TitleFixedText, name = menu_title, relx = (x_max - 23) // 2, rely = 7);
+        self.add(npyscreen.TitleFixedText, name = menu_title, relx = (x_max - 19) // 2, rely = 7);
         self.add(npyscreen.ButtonPress, name="[ Connect ]", relx = (x_max - 14) // 2, rely = 9, when_pressed_function=self.login);
         self.add(npyscreen.ButtonPress, name="[  Exit   ]", relx = (x_max - 14) // 2, rely = 11, when_pressed_function=self.exit);
         connection_status = self.add(npyscreen.FixedText, value="Connection Status: OFFLINE", relx=2, rely=1);
