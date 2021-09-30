@@ -3,6 +3,7 @@ import sys;
 import npyscreen;
 import curses;
 import os;
+import signal;
 
 # Leaving this subdirectory
 sys.path.append("../netencrypt");
@@ -47,6 +48,7 @@ class MainMenu(npyscreen.FormBaseNew):
 
         self.parentApp.switchForm(None);
         
-        terminal.exit();
+        
         client.disconnect();
+        terminal.exit();
         os._exit(0);
